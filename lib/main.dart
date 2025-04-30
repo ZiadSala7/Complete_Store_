@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/services.dart';
 import 'complete_store_app.dart';
 import 'core/app/env.variables.dart';
 import 'firebase_options_method.dart';
@@ -12,5 +13,12 @@ void main() async {
   Platform.isAndroid
       ? await Firebase.initializeApp(options: firebaseOptionsMethod())
       : await Firebase.initializeApp();
-  runApp(const CompleteStoreApp());
+
+  // to make the app in portrait mode only
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]).then((_) {
+    runApp(const CompleteStoreApp());
+  });
 }
