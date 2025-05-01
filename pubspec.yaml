@@ -28,6 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  bloc: ^9.0.0
   cloud_firestore: ^5.6.7
   connectivity_plus: ^6.1.4
   cupertino_icons: ^1.0.8
@@ -35,6 +36,7 @@ dependencies:
   firebase_core: ^3.13.0
   flutter:
     sdk: flutter
+  flutter_bloc: ^9.1.0
   flutter_dotenv: ^5.2.1
   flutter_screenutil: ^5.9.3
 
@@ -56,6 +58,11 @@ flutter:
   assets:
     - .env.prod
     - .env.dev
+    - assets/images/admin/
+    - assets/images/core/
+    - assets/images/customer/
+    - assets/images/icons/
+    - assets/svg/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
   # For details regarding adding assets from package dependencies, see
@@ -79,3 +86,15 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+flutter_assets:
+  assets_path:
+    - assets/images/admin/
+    - assets/images/core/
+    - assets/images/customer/
+    - assets/images/icons/
+    - assets/svg/
+  output_path: lib/core/styles/images/
+  filename: app_images.dart
+  ignore_comments: true
+  field_prefix: null
+  classname: AppImages
